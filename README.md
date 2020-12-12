@@ -5,7 +5,7 @@
  * [System Requirements](#System-Requirements)
  * [Instructions](#Instructions)
  * [Project Report](#Project-Report)
- * [Resources Used](#eesources-used)
+ * [Resources Used](#resources-used)
 
 
 
@@ -28,8 +28,8 @@ To run the code you need to have following things installed on you machine:
 
 To run the code follow the follwoing steps:
 
-> Open terminal
-> Navigate to the location where the folder/opython code is
+> Open terminal <br>
+> Navigate to the location where the folder/opython code is <br>
 > AnomalyDetectionProject gauravsatija$ python3 AnomalyDetection_stat.py 
 
 
