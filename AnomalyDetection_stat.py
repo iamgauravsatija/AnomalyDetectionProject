@@ -17,13 +17,15 @@ class guassian_algorithm:
         mean = sum/total_records  # mean of both the columns
 
         variance_denominator = np.sum((file - mean)**2, axis=0)
-        variance_square = variance_denominator/mean  # It is important to note it is variance square
+        variance_square = variance_denominator/mean  # It is important to note it is variance
 
         variance_diag = np.diag(variance_square)  # diagonal values of the variance
         variance_sq_determinant = np.linalg.det(variance_diag)  # compute the determinant
 
         mean_len = len(mean)
         X = file - mean
+
+        # Guassian's formula
         prob = 1/((2*np.pi)**(mean_len/2)*(variance_sq_determinant**0.5))*np.exp(-0.5* np.sum(X @ np.linalg.pinv(variance_diag) * X, axis=1))
 
         # np.linalg.pinv computes sudo inverse of matrix
@@ -70,7 +72,6 @@ class guassian_algorithm:
         f_score_value = (2*precision_value*recall) / (precision_value + recall)
 
         return f_score_value
-
 
     def algorithm(self):
         # total_records = len(self.file)  # total number of rows or data points
@@ -185,6 +186,14 @@ class guassian_algorithm:
 
 
 # file = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='X', header=None)
+file = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='X', header=None)
+
+# print(file) # prints the dataset
+
+# Plot the dataset on a 2D graph using the matplotlib.pyplot library
+plt.figure()
+plt.scatter(file[0], file[1])  # 1st column as x-axis and 2nd column as y-axis
+plt.show()
 ga_obj = guassian_algorithm()
 ga_obj.algorithm()
 
