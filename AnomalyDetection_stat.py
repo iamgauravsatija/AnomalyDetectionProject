@@ -65,7 +65,7 @@ class guassian_algorithm:
         # values of the list
         truePositive, falsePositive, falseNegative = self.calc_tf_fp_fn(prob_x, epsilon, file_cv)
 
-        print(truePositive, falsePositive, falseNegative)
+        # print(truePositive, falsePositive, falseNegative)
         precision_value = truePositive / (truePositive + falsePositive)
         recall = truePositive / (truePositive + falseNegative)
 
@@ -99,7 +99,7 @@ class guassian_algorithm:
         # Read the file using panda library function
 
         # Read the main sheet i.e. X
-        file_x = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='X', header=None)
+        file_x = pd.read_excel('ex8data1.xlsx', sheet_name='X', header=None)
         # print(file_x)
         prob_x = self.calc_probability(file_x)
 
@@ -114,7 +114,7 @@ class guassian_algorithm:
         # perform in general when used to make predictions on data not used during the training of the model
 
         # here we are going to ead the cross validation data to calculate the probability
-        file_cv = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='Xval', header=None)
+        file_cv = pd.read_excel('ex8data1.xlsx', sheet_name='Xval', header=None)
         prob_cv = self.calc_probability(file_cv)
 
         # This will give some statistical figures on the data that we have
@@ -124,7 +124,7 @@ class guassian_algorithm:
 
         # Read labels file
         # Labels file is used as the ground truth to check if the training model is working good or not
-        file_label = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='y', header=None)
+        file_label = pd.read_excel('ex8data1.xlsx', sheet_name='y', header=None)
         array_label = np.array(file_label)  # converting it into array or easy calculations later
 
 
@@ -137,7 +137,7 @@ class guassian_algorithm:
         epsilon_list = [item for item in prob_cv if item <= prob_cv.mean()]  # list of items with value probability
         # less than mean value of all probability
 
-        print(prob_cv.mean())
+        print("Probability:", prob_cv.mean())
         print(len(epsilon_list))
 
 
@@ -172,7 +172,8 @@ class guassian_algorithm:
         plt.figure()
         # plt.scatter(prob_x[0], prob_x[1])
 
-        print(file_x)
+        # Print the file
+        print("File\n", file_x)
         for index, row in file_x.iterrows():
             # print(row['label'])
             if int(row['label']) == 1:
@@ -186,7 +187,7 @@ class guassian_algorithm:
 
 
 # file = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='X', header=None)
-file = pd.read_excel('/Users/gauravsatija/Desktop/CPSC473-Data-Mining/AnomalyDetectionProject/ex8data1.xlsx', sheet_name='X', header=None)
+file = pd.read_excel('ex8data1.xlsx', sheet_name='X', header=None)
 
 # print(file) # prints the dataset
 
