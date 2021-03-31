@@ -5,7 +5,7 @@
  * [System Requirements](#System-Requirements)
  * [Instructions](#Instructions)
  * [Project Report](#Project-Report)
- * [Resources Used](#resources-used)
+ * [Credit and Resources](#Credit-and-Resources)
 
 
 
@@ -40,7 +40,7 @@ To run the code follow the follwoing steps:
 
 
 
-## Credit and Resources:
+## Credit and Resources
 We would like to thank a lot of people, websites and last but not the least out professor Dr. Fan Jiang and teaching assistant Mr. Colton Aarts (@ColtonAarts) 
 
 Dataset is from [Andrew Ng’s machine learning course](https://www.coursera.org/learn/machine-learning/home/welcome) 
