@@ -35,7 +35,7 @@ class ScoreCalculator:
 
         return f_score_value
 
-    def __calc_tf_fp_fn(self, epsilon: float, prob_x: Series, file_cv: numpy.ndarray) -> Tuple [float, float, float]:  
+    def __calc_tf_fp_fn(self, prob_x: Series, epsilon: float, file_cv: numpy.ndarray) -> Tuple [float, float, float]:  
         """Calculates true positives, false positives and false negatives of the model provided.
 
         Args:
