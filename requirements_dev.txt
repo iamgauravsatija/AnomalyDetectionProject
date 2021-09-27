@@ -1,0 +1,5 @@
+isort==5.8.0
+black==21.5b2
+flake8==3.9.2
+safety==1.10.3
+pdoc3==0.8.1
