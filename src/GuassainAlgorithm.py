@@ -120,3 +120,4 @@ class GuassianAlgorithm:
         prob = 1/((2*np.pi)**(mean_len/2)*(variance_sq_determinant**0.5))*np.exp(-0.5* np.sum(X @ np.linalg.pinv(variance_diag) * X, axis=1))
         
         return prob
+

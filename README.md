@@ -46,7 +46,7 @@ We would like to thank a lot of people, websites and last but not the least out 
 Dataset is from [Andrew Ng’s machine learning course](https://www.coursera.org/learn/machine-learning/home/welcome) 
 
 Resources:
- * https://towardsdatascience.com/a-complete-understanding-of-precision-recall-and-f-score-concepts-23dc44defef6
- * https://towardsdatascience.com/introduction-to-anomaly-detection-c651f38ccc32
- * https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e
- * https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTmOzFh8PtAhUWuZ4KHRioAcMQFjADegQICBAC&url=https%3A%2F%2Fmachinelearningmastery.com%2Fk-fold-cross-validation%2F&usg=AOvVaw3dq5uCuxWnEEzbZGBP5vK2
+ * [Precision and Recall](https://towardsdatascience.com/a-complete-understanding-of-precision-recall-and-f-score-concepts-23dc44defef6)
+ * [Intro to Anomaly Detection](https://towardsdatascience.com/introduction-to-anomaly-detection-c651f38ccc32)
+ * [Step by step guide: Anomaly detection Algorithm](https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e)
+ * [Cross Validation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTmOzFh8PtAhUWuZ4KHRioAcMQFjADegQICBAC&url=https%3A%2F%2Fmachinelearningmastery.com%2Fk-fold-cross-validation%2F&usg=AOvVaw3dq5uCuxWnEEzbZGBP5vK2)
