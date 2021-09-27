@@ -1,10 +1,10 @@
+from pandas.core.frame import DataFrame
 from pandas.core.series import Series
-from src.ScoreCalculator import ScoreCalculator
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+from src.ScoreCalculator import ScoreCalculator
 
 
 class GuassianAlgorithm:
@@ -12,13 +12,22 @@ class GuassianAlgorithm:
         self.int = 0
         self.file_path = file_path
 
-    def guassian_algorithm(self) -> None: 
-       
+    def guassian_algorithm(self) -> None:
+        """
+        - Reads the given data file from sheet X and Xval
+        - Calculates the probability of each data point
+        - Get the epsilon list of data points
+        - Calculates the f-score using epsilon and probability values
+        - Based on f-score determines which points are outliers (anomplous)
+        - Plot the graph
+
+        Useful links:
+        - https://deepai.org/machine-learning-glossary-and-terms/f-score
+        """
+
         # Reading main data point sheet
         file_x = pd.read_excel(self.file_path, sheet_name='X', header=None)
-        prob_x = self.__probability(file_x)
-        print(type(prob_x))
-        
+        prob_x = self.__probability(file_x)        
         
         # here we are going to read the cross validation data to calculate the probability
         file_cv = pd.read_excel(self.file_path, sheet_name='Xval', header=None)
@@ -30,15 +39,14 @@ class GuassianAlgorithm:
         file_label = pd.read_excel(self.file_path, sheet_name='y', header=None)
         array_label = np.array(file_label)  # converting it into array or easy calculations later
 
-        # list of with probability less than or equal to the threshold
+        # list of points with probability less than or equal to the threshold
         epsilon_list = [item for item in prob_cv if item <= prob_cv.mean()]  
     
 
         # The F-score, also called the F1-score, is a measure of a model's accuracy on a dataset
-        # https://deepai.org/machine-learning-glossary-and-terms/f-score
-
         # Calculate the f-score:
         f_score_list = []
+
         scoreCalculator = ScoreCalculator()
 
         for item in epsilon_list:
@@ -73,15 +81,21 @@ class GuassianAlgorithm:
 
 
 
-    def __probability(self, file: str) -> Series:
-        """[summary]
+    def __probability(self, file: DataFrame) -> Series:
+        """The method first calculates the probability  of all the data points
+        and then their variance in bell curve. Based on these values it calculates the 
+        threshold probability value which is used to determine if a data point is 
+        an outlier or not.
 
         Args:
-            file (str): [description]
+            file (DataFrame): The excel file in panada DataFrame format.
 
         Returns:
             Series: <class 'pandas.core.series.Series'> 
             The series contains probability values of each point int the file.
+        
+        Useful links:
+            https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e
         """
 
         # total number of rows or data points
@@ -104,9 +118,5 @@ class GuassianAlgorithm:
 
         # Guassian's formula
         prob = 1/((2*np.pi)**(mean_len/2)*(variance_sq_determinant**0.5))*np.exp(-0.5* np.sum(X @ np.linalg.pinv(variance_diag) * X, axis=1))
-
-        # np.linalg.pinv computes sudo inverse of matrix
-        # credit for above line:
-        # https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e
-
+        
         return prob
