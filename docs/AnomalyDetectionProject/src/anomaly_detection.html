@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>AnomalyDetectionProject.src.anomaly_detection API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>AnomalyDetectionProject.src.anomaly_detection</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # Anomaly detection algorithm using guassian dirtibution formula
+# # for a 2 feature dataset
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import pandas as pd
+
+# # file = pd.read_excel(&#39;ex8data1.xlsx&#39;, sheet_name=&#39;X&#39;, header=None)
+# file = pd.read_excel(&#34;./data/ex8data1.xlsx&#34;, sheet_name=&#34;X&#34;, header=None)
+
+# # print(file) # prints the dataset
+
+# # Plot the dataset on a 2D graph using the matplotlib.pyplot library
+# plt.figure()
+# plt.scatter(file[0], file[1])  # 1st column as x-axis and 2nd column as y-axis
+# plt.show()
+
+
+# class guassian_algorithm:
+#     def __init__(self):
+#         self.int = 0
+
+#     def calc_probability(self, file):
+
+#         total_records = len(file)  # total number of rows or data points
+#         sum = np.sum(
+#             file, axis=0
+#         )  # sum of all the values n first column and second column separately
+#         mean = sum / total_records  # mean of both the columns
+
+#         variance_denominator = np.sum((file - mean) ** 2, axis=0)
+#         variance_square = (
+#             variance_denominator / mean
+#         )  # It is important to note it is variance
+
+#         variance_diag = np.diag(variance_square)  # diagonal values of the variance
+#         variance_sq_determinant = np.linalg.det(
+#             variance_diag
+#         )  # compute the determinant
+
+#         mean_len = len(mean)
+#         X = file - mean
+
+#         # Guassian&#39;s formula
+#         prob = (
+#             1
+#             / ((2 * np.pi) ** (mean_len / 2) * (variance_sq_determinant ** 0.5))
+#             * np.exp(-0.5 * np.sum(X @ np.linalg.pinv(variance_diag) * X, axis=1))
+#         )
+
+#         # np.linalg.pinv computes sudo inverse of matrix
+#         # credit for above line:
+#         # https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e
+
+#         return prob
+
+#     def calc_tf_fp_fn(
+#         self, prob_x, epsilon, file_cv
+#     ):  # This is a function to find true positives, false positives and false negatives
+#         truePositive, falsePositive, falseNegative = 0, 0, 0
+#         # print(file_cv)
+#         for i in range(0, len(file_cv)):
+#             # if the probability of item at index &#39;i&#39; is less than the epsilon and it has is anomalous item then
+#             # increase the true positives by one
+#             # this means that our training model was able to detect anomalous; which is good
+#             if prob_x[i] &lt;= epsilon and file_cv[i][0] == 1:
+#                 truePositive += 1
+
+#             # if the probability of item at index &#39;i&#39; is less than the epsilon  but it is not an anomalous point then
+#             # that is not good, this is where my training model is wrong which means it is flagging an item which is
+#             # non anomalous as anomalous
+#             elif prob_x[i] &lt;= epsilon and file_cv[i][0] == 0:
+#                 falsePositive += 1
+
+#             # This basically means that my training model is says a point is not anomalous but it should be
+#             elif prob_x[i] &gt; epsilon and file_cv[i][0] == 1:
+#                 falseNegative += 1
+
+#         return truePositive, falsePositive, falseNegative
+
+#     def f_score(self, epsilon, prob_x, file_cv):
+
+#         # For more information on f-score:
+#         # credit: https://towardsdatascience.com/a-complete-understanding-of-precision-recall-and-f-score-concepts-23dc44defef6
+
+#         # To calculate the f-score we first need to calculate truePositive, falsePositive, falsePositive
+#         # values of the list
+#         truePositive, falsePositive, falseNegative = self.calc_tf_fp_fn(
+#             prob_x, epsilon, file_cv
+#         )
+
+#         # print(truePositive, falsePositive, falseNegative)
+#         precision_value = truePositive / (truePositive + falsePositive)
+#         recall = truePositive / (truePositive + falseNegative)
+
+#         f_score_value = (2 * precision_value * recall) / (precision_value + recall)
+
+#         return f_score_value
+
+#     def algorithm(self):
+#         # total_records = len(self.file)  # total number of rows or data points
+#         # sum = np.sum(file, axis=0)  # sum of all the values n first column and second column separately
+#         # mean = sum/total_records  # mean of both the columns
+#         #
+#         # variance_denominator = np.sum((file - mean)**2, axis=0)
+#         # variance_square = variance_denominator/mean  # It is important to note it is variance square
+#         #
+#         # variance_diag = np.diag(variance_square)  # diagonal values of the variance
+#         # variance_sq_determinant = np.linalg.det(variance_diag) # compute the determinant
+#         #
+#         # mean_len = len(mean)
+#         # X = file - mean
+#         # prob = 1/((2*np.pi)*(variance_sq_determinant**0.5))*np.exp(-0.5*np.sum(X @ np.linalg.pinv(variance_diag)*X, axis=1))
+#         # # np.linalg.pinv computes sudo inverse of matrix
+#         # # credit for above line:
+#         # # https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e
+
+#         # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#         # Excel file used in this example has 3 sheets (X, Xval &amp; y)
+#         # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+#         # Read the file using panda library function
+
+#         # Read the main sheet i.e.
+#         file_x = pd.read_excel(&#34;ex8data1.xlsx&#34;, sheet_name=&#34;X&#34;, header=None)
+#         # print(file_x)
+#         prob_x = self.calc_probability(file_x)
+
+#         # prob_x.describe()
+#         print(&#34;****&#34;)
+
+#         # Read the cross-validation data
+#         # Credit: https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiTmOzFh8PtAhUWuZ4KHRioAcMQFjADegQICBAC&amp;url=https%3A%2F%2Fmachinelearningmastery.com%2Fk-fold-cross-validation%2F&amp;usg=AOvVaw3dq5uCuxWnEEzbZGBP5vK2
+#         # Why do we need cross validation data?
+#         # Cross-validation is primarily used in applied machine learning to estimate the skill of a machine learning
+#         # model on unseen data. That is, to use a limited sample in order to estimate how the model is expected to
+#         # perform in general when used to make predictions on data not used during the training of the model
+
+#         # here we are going to ead the cross validation data to calculate the probability
+#         file_cv = pd.read_excel(&#34;ex8data1.xlsx&#34;, sheet_name=&#34;Xval&#34;, header=None)
+#         prob_cv = self.calc_probability(file_cv)
+
+#         # This will give some statistical figures on the data that we have
+#         # print(prob_cv.describe())
+#         print(&#34;****&#34;)
+
+#         # Read labels file
+#         # Labels file is used as the ground truth to check if the training model is working good or not
+#         file_label = pd.read_excel(&#34;ex8data1.xlsx&#34;, sheet_name=&#34;y&#34;, header=None)
+#         array_label = np.array(
+#             file_label
+#         )  # converting it into array or easy calculations later
+
+#         # # # # # #
+#         # if you want to change the parameters of probability to see how the plot changes based on value
+#         # multiply prob_cv.mean() by a factor and it will change the plot
+#         # # # # # #
+
+#         # list of with probability less than or equal to the threshold
+#         epsilon_list = [
+#             item for item in prob_cv if item &lt;= prob_cv.mean()
+#         ]  # list of items with value probability
+#         # less than mean value of all probability
+
+#         print(prob_cv.mean())
+#         print(len(epsilon_list))
+
+#         # The F-score, also called the F1-score, is a measure of a model&#39;s accuracy on a dataset
+#         # https://deepai.org/machine-learning-glossary-and-terms/f-score
+
+#         # here we will calculate the f score list
+#         f_score_list = []  # f-score value of every item
+#         for item in epsilon_list:
+#             f_score_list.append(self.f_score(item, prob_cv, array_label))
+
+#         # print(len(f_score_list))
+
+#         max_fscore_index = np.array(f_score_list).argmax()
+
+#         max_fscore_epsilon = epsilon_list[max_fscore_index]
+
+#         anomaly_List = (
+#             []
+#         )  # This list will contain 0 or 1 value and that will tell if an item is anomalous or not
+#         # if there is 0 at index i then that means the point is normal
+#         # if there is 1 at index i then that means the point is anomalous
+
+#         for i in range(0, len(file_x)):
+#             if prob_x[i] &lt;= max_fscore_epsilon:
+#                 anomaly_List.append(1)
+#             else:
+#                 anomaly_List.append(0)
+
+#         file_x[&#34;label&#34;] = np.array(anomaly_List)
+
+#         # plotting graph with anomalies
+#         plt.figure()
+#         # plt.scatter(prob_x[0], prob_x[1])
+
+#         print(file_x)
+#         for index, row in file_x.iterrows():
+#             # print(row[&#39;label&#39;])
+#             if int(row[&#34;label&#34;]) == 1:
+#                 # print(&#34;******\n&#34;, row, &#34;\n&#34;)
+#                 plt.scatter(row[0], row[1], color=&#34;red&#34;)
+#             else:
+#                 plt.scatter(row[0], row[1], color=&#34;blue&#34;)
+#         plt.show()
+
+
+# ga_obj = guassian_algorithm()
+# ga_obj.algorithm()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="AnomalyDetectionProject.src" href="index.html">AnomalyDetectionProject.src</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

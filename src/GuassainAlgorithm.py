@@ -1,14 +1,14 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from pandas.core.frame import DataFrame
 from pandas.core.series import Series
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 from src.ScoreCalculator import ScoreCalculator
 
 
 class GuassianAlgorithm:
-    def __init__(self, file_path='data/ex8data1.xlsx') -> None: 
+    def __init__(self, file_path="data/ex8data1.xlsx") -> None:
         self.int = 0
         self.file_path = file_path
 
@@ -26,22 +26,22 @@ class GuassianAlgorithm:
         """
 
         # Reading main data point sheet
-        file_x = pd.read_excel(self.file_path, sheet_name='X', header=None)
-        prob_x = self.__probability(file_x)        
-        
-        # here we are going to read the cross validation data to calculate the probability
-        file_cv = pd.read_excel(self.file_path, sheet_name='Xval', header=None)
-        prob_cv = self.__probability(file_cv)
+        file_x = pd.read_excel(self.file_path, sheet_name="X", header=None)
+        prob_x = self.__probability(file_x)
 
+        # here we are going to read the cross validation data to calculate the probability
+        file_cv = pd.read_excel(self.file_path, sheet_name="Xval", header=None)
+        prob_cv = self.__probability(file_cv)
 
         # Read labels file
         # Labels file is used as the ground truth to check if the training model is working good or not
-        file_label = pd.read_excel(self.file_path, sheet_name='y', header=None)
-        array_label = np.array(file_label)  # converting it into array or easy calculations later
+        file_label = pd.read_excel(self.file_path, sheet_name="y", header=None)
+        array_label = np.array(
+            file_label
+        )  # converting it into array or easy calculations later
 
         # list of points with probability less than or equal to the threshold
-        epsilon_list = [item for item in prob_cv if item <= prob_cv.mean()]  
-    
+        epsilon_list = [item for item in prob_cv if item <= prob_cv.mean()]
 
         # The F-score, also called the F1-score, is a measure of a model's accuracy on a dataset
         # Calculate the f-score:
@@ -58,7 +58,7 @@ class GuassianAlgorithm:
         # This list will contain 0 or 1 value and that will tell if a data point is outlier or not
         # if there is 0 at index i then that means the point is normal
         # if there is 1 at index i then that means the point is anomalous
-        anomaly_list = []  
+        anomaly_list = []
 
         for i in range(0, len(file_x)):
             if prob_x[i] <= max_fscore_epsilon:
@@ -66,34 +66,31 @@ class GuassianAlgorithm:
             else:
                 anomaly_list.append(0)
 
-
-        file_x['label'] = np.array(anomaly_list)
+        file_x["label"] = np.array(anomaly_list)
 
         # plotting graph with anomalies
         plt.figure()
 
         for index, row in file_x.iterrows():
-            if int(row['label']) == 1:
-                plt.scatter(row[0], row[1], color='red')
+            if int(row["label"]) == 1:
+                plt.scatter(row[0], row[1], color="red")
             else:
-                plt.scatter(row[0], row[1], color='blue')
-        plt.show()
-
-
+                plt.scatter(row[0], row[1], color="blue")
+        plt.savefig("data/anomaly_detect.png")
 
     def __probability(self, file: DataFrame) -> Series:
         """The method first calculates the probability  of all the data points
-        and then their variance in bell curve. Based on these values it calculates the 
-        threshold probability value which is used to determine if a data point is 
+        and then their variance in bell curve. Based on these values it calculates the
+        threshold probability value which is used to determine if a data point is
         an outlier or not.
 
         Args:
             file (DataFrame): The excel file in panada DataFrame format.
 
         Returns:
-            Series: <class 'pandas.core.series.Series'> 
+            Series: <class 'pandas.core.series.Series'>
             The series contains probability values of each point int the file.
-        
+
         Useful links:
             https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e
         """
@@ -103,11 +100,11 @@ class GuassianAlgorithm:
         # sum of all the values n first column and second column separately
         sum = np.sum(file, axis=0)
         # mean of both the columns
-        mean = sum/total_records
+        mean = sum / total_records
 
-        variance_denominator = np.sum((file - mean)**2, axis=0)
+        variance_denominator = np.sum((file - mean) ** 2, axis=0)
         # variance
-        variance_square = variance_denominator/mean
+        variance_square = variance_denominator / mean
         # diagonal values of the variance
         variance_diag = np.diag(variance_square)
         # compute the determinant
@@ -117,7 +114,10 @@ class GuassianAlgorithm:
         X = file - mean
 
         # Guassian's formula
-        prob = 1/((2*np.pi)**(mean_len/2)*(variance_sq_determinant**0.5))*np.exp(-0.5* np.sum(X @ np.linalg.pinv(variance_diag) * X, axis=1))
-        
-        return prob
+        prob = (
+            1
+            / ((2 * np.pi) ** (mean_len / 2) * (variance_sq_determinant ** 0.5))
+            * np.exp(-0.5 * np.sum(X @ np.linalg.pinv(variance_diag) * X, axis=1))
+        )
 
+        return prob
