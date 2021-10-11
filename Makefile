@@ -25,6 +25,8 @@ docker_build:
 
 docker_run:
 	docker run --name anomaly_detection_project --env="DISPLAY" --mount  type=bind,source="$$(pwd)/",target=/anomaly_detection_project  iamgauravsatija/anomaly_detection_project
+	open data/given_data.png 
+	open data/anomaly_detect.png
 
 docker_push:
 	docker push iamgauravsatija/anomaly_detection_project
