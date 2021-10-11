@@ -1,36 +1,56 @@
 # Anomaly Detection
 
 ## <b>Content </b>
+ * [How to run it](#how-to-run-it)
  * [Introduction and Motivation](#introduction-and-motivation)
- * [System Requirements](#System-Requirements)
- * [Instructions](#Instructions)
+ * [Libraries Used](#libraries-used)
  * [Project Report](#Project-Report)
- * [Credit and Resources](#Credit-and-Resources)
+ * [Additional Resources](#additional-Resources)
 
+
+## How to run it
+
+Using Docker image from Docker hub:
+ * Pull docker image:
+ ```Bash 
+ docker pull iamgauravsatija/anomaly_detection_project
+ ``` 
+ * Run:
+ ```Bash 
+ make docker_run 
+ ``` 
+
+User src code:
+ * Open terminal
+ * Navigate to the folder
+ * Run
+```Bash
+    make install_requirements
+    make run_shortest_dist_path 
+```
+ * For results: AnomalyDetectionProject > data > .png files
 
 
 ## Introduction and Motivation
 This repo was created as project for CPSC-473: Introduction to Data Mining course. 
-For the course I, @iamgauravsatija, and my project partner, @TheLostLight, created a simple anomaly detection python project.
-Out of vast variety of anomaly detection techniques available we picked Guassian Distribution. The reason why we selected Guassian Distribution is because it is a very popular, easy to explain and implement. If you are interested in more about this check outh the [report](Project-Report) below.
+For the course my classmate @TheLostLight and I created a simple anomaly detection python project.
+Out of vast variety of anomaly detection techniques available we picked Guassian Distribution. The reason why we selected Guassian Distribution is because it is a very popular, easy to explain and implement. If you are interested in more about this check out the project report below.
 
-## System Requirements
 
-To run the code you need to have following things installed on you machine:
+## Libraries Used
+For normal user program:
  * python3
  * pandas
  * numpy 
  * matplotlib
+ * openpyxl
 
-
-
-## Instructions
-
-To run the code follow the follwoing steps:
-
-> Open terminal <br>
-> Navigate to the location where the folder/opython code is <br>
-> AnomalyDetectionProject gauravsatija$ python3 AnomalyDetection_stat.py 
+For dev (including above libraries):
+ * isort
+ * black
+ * flake8
+ * safety
+ * pdoc3
 
 
 ## Project Report
@@ -38,14 +58,7 @@ To run the code follow the follwoing steps:
 [Link to project report](https://www.overleaf.com/read/zbbtsjkpwjyz)
 
 
-
-
-## Credit and Resources
-We would like to thank a lot of people, websites and last but not the least out professor Dr. Fan Jiang and teaching assistant Mr. Colton Aarts (@ColtonAarts) 
-
-Dataset is from [Andrew Ng’s machine learning course](https://www.coursera.org/learn/machine-learning/home/welcome) 
-
-Resources:
+## Additional Resources
  * [Precision and Recall](https://towardsdatascience.com/a-complete-understanding-of-precision-recall-and-f-score-concepts-23dc44defef6)
  * [Intro to Anomaly Detection](https://towardsdatascience.com/introduction-to-anomaly-detection-c651f38ccc32)
  * [Step by step guide: Anomaly detection Algorithm](https://towardsdatascience.com/a-complete-anomaly-detection-algorithm-from-scratch-in-python-step-by-step-guide-e1daf870336e)
