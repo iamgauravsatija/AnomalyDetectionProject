@@ -10,23 +10,13 @@
 
 ## How to run it
 
-Using Docker image from Docker hub:
- * Pull docker image:
- ```Bash 
- docker pull iamgauravsatija/anomaly_detection_project
- ``` 
- * Run:
- ```Bash 
- make docker_run 
- ``` 
-
-User src code:
+ * Pull the src code
  * Open terminal
  * Navigate to the folder
  * Run
 ```Bash
-    make install_requirements
-    make run_shortest_dist_path 
+    make docker_build
+    make docker_run
 ```
  * For results: AnomalyDetectionProject > data > .png files
 
